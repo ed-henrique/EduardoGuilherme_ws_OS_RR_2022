@@ -8,6 +8,9 @@ Project made by [Eduardo Henrique](https://github.com/ed-henrique) and [Guilherm
 - [Table of Contents](#table-of-contents)
 - [Goals](#goals)
 - [Problems Encountered](#problems-encountered)
+  - [In C](#in-c)
+  - [In C++](#in-c-1)
+  - [In Rust](#in-rust)
 - [Demo](#demo)
 - [References](#references)
 
@@ -24,7 +27,9 @@ It would also be nice to implement the same thing in C, C++ and Rust, creating r
 
 ## Problems Encountered
 
-What is going wrong right now:
+#### __In C:__
+
+Problems:
 
 1. Something regarding DFSUtil while loop, certainly;
 2. No threads are applied yet;
@@ -35,6 +40,10 @@ Possible solutions:
 1. No fucking idea;
 2. Threads may only be applied once we can solve the DFS without them;
 3. We can use an adjacency matrix instead of a linked list;
+
+#### __In C++:__
+
+#### __In Rust:__
 
 ## Demo
 

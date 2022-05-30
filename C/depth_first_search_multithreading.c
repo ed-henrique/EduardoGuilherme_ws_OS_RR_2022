@@ -1,17 +1,6 @@
 #include <stdio.h>
 #include "graph.h"
 
-// This code was mostly taken from GeeksForGeeks
-// Not working because I translated it from C++ very poorly
-// What is going wrong right now:
-//     1. Something regarding DFSUtil while loop, certainly
-//     2. No threads are applied yet
-//     3. Graph is dynamically allocated, what does not make things easier
-// Possible solutions:
-//     1. No fucking idea
-//     2. Threads may only be applied once we can solve this without them
-//     3. We can use an adjacency matrix instead of a linked list
-
 void DepthFirstSearchUtil(AdjListNode* head) {
     
     head->visited = 1;
