@@ -6,8 +6,6 @@ Project made by [Eduardo Henrique](https://github.com/ed-henrique) and [Guilherm
 
 ## Table of Contents
 
-- [Deep First Search in Graphs using Multithreading](#deep-first-search-in-graphs-using-multithreading)
-- [Table of Contents](#table-of-contents)
 - [Goals](#goals)
 - [Problems Encountered](#problems-encountered)
   - [In C](#in-c)
