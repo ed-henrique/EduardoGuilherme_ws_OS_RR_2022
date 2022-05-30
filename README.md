@@ -1,6 +1,6 @@
 # Deep First Search in Graphs using Multithreading
 
-Project made by [Eduardo Henrique](https://github.com/ed-henrique) and [Guilherme Lirioberto]()
+Project made by [Eduardo Henrique](https://github.com/ed-henrique) and [Guilherme Lirioberto](https://github.com/Liriogui)
 
 ---
 
