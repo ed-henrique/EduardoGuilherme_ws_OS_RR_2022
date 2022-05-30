@@ -1,6 +1,6 @@
 # Deep First Search in Graphs using Multithreading
 
-Project made by [Eduardo Henrique](https://github.com/ed-henrique) and [Guilherme Lirioberto](https://github.com/Liriogui)
+Project made by [Eduardo Henrique](https://github.com/ed-henrique) and [Guilherme Lirioberto](https://github.com/Liriogui).
 
 ---
 
@@ -46,6 +46,16 @@ Possible solutions:
 3. We can use an adjacency matrix instead of a linked list;
 
 #### __In C++:__
+
+Problems:
+
+1. Handling visualization of disconnected graphs;
+2. No threads are applied yet;
+
+Possible solutions:
+
+1. Print graph before showing DFS result;
+2. Threads may only be applied once we can solve the DFS without them;
 
 #### __In Rust:__
 
