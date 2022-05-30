@@ -2,6 +2,8 @@
 
 Project made by [Eduardo Henrique](https://github.com/ed-henrique) and [Guilherme Lirioberto]()
 
+---
+
 ## Table of Contents
 
 - [Deep First Search in Graphs using Multithreading](#deep-first-search-in-graphs-using-multithreading)
@@ -14,6 +16,8 @@ Project made by [Eduardo Henrique](https://github.com/ed-henrique) and [Guilherm
 - [Demo](#demo)
 - [References](#references)
 
+---
+
 ## Goals
 
 This problem was created with two tests in mind:
@@ -24,6 +28,8 @@ This problem was created with two tests in mind:
 Tests aside, this program must also show how well we can work using threads.
 
 It would also be nice to implement the same thing in C, C++ and Rust, creating room for discussion about the different approaches taken in each one.
+
+---
 
 ## Problems Encountered
 
@@ -45,9 +51,13 @@ Possible solutions:
 
 #### __In Rust:__
 
+---
+
 ## Demo
 
 <!--- Remember to put the video in here after --->
+
+---
 
 ## References
 
