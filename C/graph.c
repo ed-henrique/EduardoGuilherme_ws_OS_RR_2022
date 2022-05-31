@@ -4,54 +4,52 @@
 
 // This code was mostly taken from GeeksForGeeks
 
-AdjListNode* newAdjListNode(int dest) {
-    AdjListNode* newNode = (AdjListNode*)malloc(sizeof(AdjListNode));
-    newNode->dest = dest;
-    newNode->visited = 0;
-    newNode->next = NULL;
-    return newNode;
+Node* newNode(int data) {
+    Node* n = (Node*)malloc(sizeof(Node));
+    n->data = data;
+    n->visited = 0;
+    n->next = NULL;
+    return n;
 }
 
-Graph* createGraph(int V) {
+Graph* createGraph(int capacity) {
     Graph* g = (Graph*)malloc(sizeof(Graph));
-    g->V = V;
-    g->array = (AdjList*)malloc(V * sizeof(AdjList));
-    
-    for (int i = 0; i < V; i++) g->array[i].head = NULL;
-    
+    g->capacity = capacity;
+    g->array = (NodeList*)malloc(capacity * sizeof(NodeList));
+    for (int i = 0; i < capacity; i++) g->array[i].head = NULL;
     return g;
 }
 
-void addEdge(Graph* g, int src, int dest) {
-    AdjListNode* check = NULL;
-    AdjListNode* newNode = newAdjListNode(dest);
+void addEdge(Graph* g, int src, int data) {
+    Node* check = NULL;
+    Node* n = newNode(data);
 
     if (g->array[src].head == NULL) {
-        newNode->next = g->array[src].head;
-        g->array[src].head = newNode;
+        n->next = g->array[src].head;
+        g->array[src].head = n;
     } else {
         check = g->array[src].head;
         while (check->next != NULL) check = check->next;
-        check->next = newNode;
+        check->next = n;
     }
 
-    newNode = newAdjListNode(src);
-    if (g->array[dest].head == NULL) {
-        newNode->next = g->array[dest].head;
-        g->array[dest].head = newNode;
+    n = newNode(src);
+    if (g->array[data].head == NULL) {
+        n->next = g->array[data].head;
+        g->array[data].head = n;
     } else {
-        check = g->array[dest].head;
+        check = g->array[data].head;
         while (check->next != NULL) check = check->next;
-        check->next = newNode;
+        check->next = n;
     }
 }
 
 void printGraph(Graph* g) {
-    for (int i = 0; i < g->V; i++) {
-        AdjListNode* pCrawl = g->array[i].head;
+    for (int i = 0; i < g->capacity; i++) {
+        Node* pCrawl = g->array[i].head;
         printf("Adjacency list of vertex %d\n  >> head ", i);
         while (pCrawl) {
-            printf("-> %d ", pCrawl->dest);
+            printf("-> %d ", pCrawl->data);
             pCrawl = pCrawl->next;
         }
         printf("\n\n");

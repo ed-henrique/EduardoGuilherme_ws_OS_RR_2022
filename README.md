@@ -54,7 +54,7 @@ Problems:
 
 Possible solutions:
 
-1. Print graph before showing DFS result;
+1. We are considering that no disconnected graphs are going to be passed as a parameter (yes, we know it might backfire, but we are running low on time);
 2. Threads may only be applied once we can solve the DFS without them;
 
 #### __In Rust:__

@@ -1,37 +1,64 @@
 #include <stdio.h>
-#include "graph.h"
+#include <string.h>
+#include <pthread.h>
 
-void DepthFirstSearchUtil(AdjListNode* head) {
+#define MAX 8
+
+pthread_t tid[MAX];
+pthread_mutex_t lock;
+
+long visited[MAX] = {0};
+long A[MAX][MAX] = {
+    {0,1,1,1,0,0,0,0},
+    {1,0,1,0,0,0,0,0},
+    {1,1,0,1,1,0,0,0},
+    {1,0,1,0,1,0,0,0},
+    {0,0,1,1,0,1,1,0},
+    {0,0,0,0,1,0,0,0},
+    {0,0,0,0,1,0,0,1},
+    {0,0,0,0,0,0,1,0}
+};
+
+void* DFS(void* i) {
+    long x = (long) i;
+    printf("%ld ", x);
     
-    head->visited = 1;
-    AdjListNode* tmp = head;
-
-    printf("%d ", head->dest);
-
-    while (tmp) {
-        if (tmp->visited == 0) DepthFirstSearchUtil(tmp);
-        tmp = tmp->next;
+    pthread_mutex_lock(&lock);
+    visited[x] = 1;
+    for (long j = 0; j < MAX; j++) {
+        long tmp = visited[j];
+        pthread_mutex_unlock(&lock);
+        if (A[x][j] == 1 && !tmp) {
+            DFS((void*) j);
+        }
     }
+    
+    pthread_exit(NULL);
 }
 
-void DepthFirstSearch(Graph* g) {
-    for (int i = 0; i < g->V; i++) {
-        if (g->array[i].head->visited == 0) DepthFirstSearchUtil(g->array[i].head);
+long main() {
+    long i = 0;
+    long error = 0;
+
+    if (pthread_mutex_init(&lock, NULL) != 0) {
+        printf(">> ERROR MUTEX\n");
+        return 1;
     }
-}
 
-int main() {
-    int V = 5;
-    Graph* g = createGraph(V);
-    addEdge(g, 0, 1);
-    addEdge(g, 0, 4);
-    addEdge(g, 1, 2);
-    addEdge(g, 2, 0);
-    addEdge(g, 2, 3);
-    addEdge(g, 4, 3);
+    while (i < MAX) {
+        error = pthread_create(&tid[i], NULL, DFS, (void*) i);
+        if (error != 0) {
+            puts(">> ERROR");
+            strerror(error);
+        }
+        i++;
+    }
 
-    printGraph(g);
-    DepthFirstSearch(g);
+    for (long i = 0; i < MAX; i++) pthread_join(tid[i], NULL);
+
+    printf("\n");
+    pthread_exit(NULL);
+
 
     return 0;
 }

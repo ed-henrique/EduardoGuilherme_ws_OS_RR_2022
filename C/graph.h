@@ -1,19 +1,19 @@
-typedef struct adjListNode {
-    int dest;
+typedef struct node {
+    int data;
     int visited;
-    struct adjListNode* next;
-} AdjListNode;
+    struct node* next;
+} Node;
 
-typedef struct adjList {
-    AdjListNode* head;
-} AdjList;
+typedef struct nodeList {
+    Node* head;
+} NodeList;
 
 typedef struct graph {
-    int V;
-    AdjList* array;
+    int capacity;
+    NodeList* array;
 } Graph;
 
-AdjListNode* newAdjListNode(int dest);
-Graph* createGraph(int V);
-void addEdge(Graph* g, int src, int dest);
+Node* newNode(int data);
+Graph* createGraph(int capacity);
+void addEdge(Graph* g, int src, int data);
 void printGraph(Graph* g);
