@@ -10,7 +10,6 @@ Project made by [Eduardo Henrique](https://github.com/ed-henrique) and [Guilherm
 - [Problems Encountered](#problems-encountered)
   - [In C](#in-c)
   - [In C++](#in-c-1)
-  - [In Rust](#in-rust)
 - [Demo](#demo)
 - [References](#references)
 
