@@ -4,27 +4,6 @@
 #include <list>
 #include <map>
 
-void DFSUtil(int v, std::map<int, std::list<int>> adj, std::map<int, bool> visited) {
-    visited[v] = true;
-    std::cout << v << " ";
-
-    std::list<int>::iterator i;
-    for (i = adj[v].begin(); i != adj[v].end(); ++i) {
-        if (!visited[*i]) {
-            DFSUtil(*i, adj, visited);
-        }
-    }
-}
-
-void DFS(std::map<int, std::list<int>> adj, std::map<int, bool> visited) {
-	for (auto i : adj) {
-		if (visited[i.first] == false) {
-			DFSUtil(i.first, adj, visited);
-        }
-    }
-    std::cout << std::endl;
-}
-
 class Graph {
 
 	void DFSUtil(int v);
@@ -95,13 +74,7 @@ int main() {
 
     std::cout << "Following is Depth First Traversal" << std::endl;
  
-    //std::thread t (DFS, g.adj, g.visited);
-
-    //g.DFS();
-
-    //t.join();
-
-    DFS(g.adj, g.visited);
+    g.DFS();
 
     return 0;
 }

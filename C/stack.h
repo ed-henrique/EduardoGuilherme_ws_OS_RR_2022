@@ -1,10 +1,12 @@
 typedef struct stack {
-    int height;
-    int capacity;
-    int* data;
+    long height;
+    long capacity;
+    long* data;
 } Stack;
 
-Stack* createStack(int capacity);
+Stack* createStack(long capacity);
+void destroyStack(Stack** s_ref);
+int stackIsEmpty(Stack* s);
 void printStack(Stack* s);
-void push(Stack* s, int element);
-int pop(Stack* s);
+void push(Stack* s, long element);
+long pop(Stack* s);
