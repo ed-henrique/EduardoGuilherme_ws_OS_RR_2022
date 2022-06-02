@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "mutex": "c",
-        "shared_mutex": "c",
-        "syncstream": "c"
-    }
-}

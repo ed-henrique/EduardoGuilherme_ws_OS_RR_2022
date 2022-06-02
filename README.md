@@ -10,7 +10,6 @@ Project made by [Eduardo Henrique](https://github.com/ed-henrique) and [Guilherm
 - [Problems Encountered](#problems-encountered)
   - [In C](#in-c)
   - [In C++](#in-c-1)
-  - [In Rust](#in-rust)
 - [Demo](#demo)
 - [References](#references)
 
@@ -57,9 +56,6 @@ Possible solutions:
 1. We are considering that no disconnected graphs are going to be passed as a parameter (yes, we know it might backfire, but we are running low on time);
 2. Threads may only be applied once we can solve the DFS without them;
 
-#### __In Rust:__
-
----
 
 ## Demo
 
