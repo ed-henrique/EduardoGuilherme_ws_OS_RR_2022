@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <pthread.h>
 #include "stack.h"
 
@@ -49,10 +50,28 @@ void* DFS(void* i) {
 long main() {
     pthread_t tid[MAX];
 
-    for (long i = 0; i < MAX; i++) pthread_create(&tid[i], NULL, DFS, (void*) i);
+    printf("\nGRAPH:\n");
+
+    for (long i = 0; i < MAX; i++) {
+        printf("    %d | ", i);
+        for (size_t j = 0; j < MAX; j++) printf("%d ", A[i][j]);
+        printf("\n");
+    }
+    
+    printf("\n");
+
+    printf("Starting DFS with multithreading...\n\n");
+    printf("    ");
+
+    for (long i = 0; i < MAX; i++) {
+        pthread_create(&tid[i], NULL, DFS, (void*) i);
+    }
+        
     for (long i = 0; i < MAX; i++) pthread_join(tid[i], NULL);
 
-    printf("\n");
+    printf("\n\n");
+
+    printf("Program is over.\n\n");
 
     pthread_exit(NULL);
 
