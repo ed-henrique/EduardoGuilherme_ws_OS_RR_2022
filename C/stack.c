@@ -2,37 +2,57 @@
 #include <stdlib.h>
 #include "stack.h"
 
-Stack* createStack(long capacity) {
+Node* createNode(long data) {
+    Node* n = (Node*)malloc(sizeof(Node));
+    n->data = data;
+    n->next = NULL;
+}
+
+Stack* createStack() {
     Stack* s = (Stack*)malloc(sizeof(Stack));
-    s->height = -1;
-    s->capacity = capacity;
-    s->data = (long*)calloc(capacity, sizeof(long));
+    s->top = NULL;
 }
 
 void destroyStack(Stack** s_ref) {
     Stack* s = *s_ref;
-    free(s->data);
+    free(s->top);
     free(s);
     s_ref = NULL;
 }
 
 int stackIsEmpty(Stack* s) {
-    return s->height == -1;
+    return s->top == NULL;
 }
 
 void printStack(Stack* s) {
-    for (long i = 0; i < s->height - 1; i++) {
-        printf("%d | ", s->data[i]);
+    if (stackIsEmpty(s)) {
+        printf("Stack is empty!\n");
+    } else {
+        Node* n = s->top;
+        while(n->next != NULL) {
+            printf("%d|", n->data);
+            n = n->next;
+        }
+        printf("%d\n", n->data);
     }
-    printf("%d\n", s->data[s->height - 1]);
 }
 
 void push(Stack* s, long element) {
-    if (s->height == s->capacity - 1) printf("Stack is full!\n");
-    else s->data[++s->height] = element;
+    Node* n = createNode(element);
+    n->next = s->top;
+    s->top = n;
+    s->height++;
 }
 
 long pop(Stack* s) {
-    if (stackIsEmpty(s)) printf("Stack is empty!\n");
-    else return s->data[s->height--];
+    if (stackIsEmpty(s)) {
+        printf("Stack is empty!\n");
+    } else {
+        Node* n = s->top;
+        s->top = s->top->next;
+        long x = n->data;
+        free(n);
+        s->height--;
+        return x;
+    }
 }
