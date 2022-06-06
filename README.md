@@ -17,12 +17,7 @@ Project made by [Eduardo Henrique](https://github.com/ed-henrique) and [Guilherm
 
 Things we have done:
 - Implement randomly generated graphs with a given size;
-- Implement DFS without multithreading;
-- Implement a DFS with multithreading that works from time to time;
-
-Things we haven't done:
-- Implement a maze-solving test for the algorithm;
-- Implement a fully-functional DFS with multithreading;
+- Implement DFS with and without multithreading;
 
 ---
 
@@ -31,12 +26,10 @@ Things we haven't done:
 Problems:
 
 1. Running through disconnected graphs;
-2. Some nodes are not visiting their neighbors before leaving the stack;
 
 Possible solutions:
 
 1. Not required to solve this specific issue;
-2. No idea;
 
 ## Demo
 
@@ -48,7 +41,7 @@ Possible solutions:
 
 Most of the code regarding graphs was inspired by this [Youtube Video](https://www.youtube.com/watch?v=jQmlXAwUvZ4).
 
-Most of the code regarding DFS using multithreading was taken from this [Github Repo](https://github.com/Raafm/algorithm_visualization/blob/main/multithreadDFS.py).
+Most of the code regarding DFS using multithreading was adapted from this [Github Repo](https://github.com/Raafm/algorithm_visualization/blob/main/multithreadDFS.py).
 
 We have also used the references given out by our professor:
 

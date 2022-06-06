@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include "stack.h"
 
-#define NUM_NODES 40
+#define NUM_NODES 38
 
 clock_t start, end;
 double cpu_time_used;
