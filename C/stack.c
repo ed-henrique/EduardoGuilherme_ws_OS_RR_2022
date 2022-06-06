@@ -11,6 +11,7 @@ Node* createNode(long data) {
 Stack* createStack() {
     Stack* s = (Stack*)malloc(sizeof(Stack));
     s->top = NULL;
+    s->height = 0;
 }
 
 void destroyStack(Stack** s_ref) {
@@ -21,7 +22,7 @@ void destroyStack(Stack** s_ref) {
 }
 
 int stackIsEmpty(Stack* s) {
-    return s->top == NULL;
+    return s->height == 0;
 }
 
 void printStack(Stack* s) {

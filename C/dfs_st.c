@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include "stack.h"
 
-#define NUM_NODES 50
+#define NUM_NODES 40
 
 clock_t start, end;
 double cpu_time_used;
@@ -50,7 +50,7 @@ void* DFS(void* i) {
         long y = pop(s);
 
         if (!visited[y]) {
-            printf("%ld ", y);
+            printf("\033[31m%ld ", y);
             visited[y] = 1;
         }
 
@@ -68,7 +68,7 @@ long main() {
     createGraph();
     printGraph();
 
-    printf("Starting DFS with singlethread...\n\n    ");
+    printf("\nStarting DFS with singlethread...\n\n    ");
     
     start = clock();
 
@@ -76,11 +76,11 @@ long main() {
 
     end = clock();
 
-    printf("\n\nProgram is over.\n\n");
+    printf("\033[0m\n\nProgram is over.\n\n");
 
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
 
-    printf("Time elapsed = %fs\n\n", cpu_time_used);
+    printf("Time elapsed = \033[35m%fs\n\n", cpu_time_used);
 
     return 0;
 }
