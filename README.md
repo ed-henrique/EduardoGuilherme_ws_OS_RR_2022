@@ -33,7 +33,9 @@ Possible solutions:
 
 ## Demo
 
-<!--- Remember to put the video in here after --->
+Each thread is represented by a color:
+
+https://user-images.githubusercontent.com/62185704/172266016-85b6ea73-36b2-4425-858c-ff76f8a917e2.mp4
 
 ---
 

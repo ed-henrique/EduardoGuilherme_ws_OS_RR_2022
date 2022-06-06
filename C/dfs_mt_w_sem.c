@@ -5,7 +5,7 @@
 #include <semaphore.h>
 #include "stack.h"
 
-#define NUM_NODES 38
+#define NUM_NODES 10
 #define THREAD_COUNT 4
 
 typedef struct thread {
