@@ -9,6 +9,7 @@ Project made by [Eduardo Henrique](https://github.com/ed-henrique) and [Guilherm
 - [Goals](#goals)
 - [Problems Encountered](#problems-encountered)
 - [Demo](#demo)
+- [Presentation](#presentation)
 - [References](#references)
 
 ---
@@ -31,11 +32,19 @@ Possible solutions:
 
 1. Not required to solve this specific issue;
 
+---
+
 ## Demo
 
 Each thread is represented by a color:
 
 https://user-images.githubusercontent.com/62185704/172266016-85b6ea73-36b2-4425-858c-ff76f8a917e2.mp4
+
+---
+
+## Presentation
+
+Our slide can be viewed in [Canva](https://www.canva.com/design/DAFCO6f3mYU/8lBF2lOTNtadRESiuYPkPA/view).
 
 ---
 

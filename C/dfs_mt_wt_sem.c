@@ -4,7 +4,7 @@
 #include <pthread.h>
 #include "stack.h"
 
-#define NUM_NODES 500
+#define NUM_NODES 800
 #define THREAD_COUNT 4
 
 typedef struct thread {
@@ -45,7 +45,7 @@ void createGraph() {
 
 void printGraph() {
     for (long i = 0; i < NUM_NODES; i++) {
-        printf("%6d | ", i);
+        printf("\033[35m%6d\033[0m | ", i);
         for (long j = 0; j < NUM_NODES; j++) printf("%d ", graph[i][j]);
         printf("\n");
     }
