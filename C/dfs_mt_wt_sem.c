@@ -4,7 +4,7 @@
 #include <pthread.h>
 #include "stack.h"
 
-#define NUM_NODES 38
+#define NUM_NODES 500
 #define THREAD_COUNT 4
 
 typedef struct thread {
@@ -14,7 +14,6 @@ typedef struct thread {
 
 Thread threads[THREAD_COUNT];
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-pthread_mutex_t see_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 clock_t start, end;
 double cpu_time_used;
@@ -65,30 +64,20 @@ void DFS(Stack* globalStack) {
 
             current = pop(globalStack);
 
-            pthread_mutex_lock(&see_mutex);
-            if (pthread_self() == threads[0].tid) {
-                color = "\033[31m";
-            } else if (pthread_self() == threads[1].tid) {
-                color = "\033[32m";
-            } else if (pthread_self() == threads[2].tid) {
-                color = "\033[33m";
-            } else {
-                color = "\033[34m";
-            }
+            if (pthread_self() == threads[0].tid) color = "\033[31m";
+            else if (pthread_self() == threads[1].tid) color = "\033[32m";
+            else if (pthread_self() == threads[2].tid) color = "\033[33m";
+            else color = "\033[34m";
 
             printf("%s%ld ", color, current);
-            pthread_mutex_unlock(&see_mutex);
 
-            pthread_mutex_lock(&see_mutex);
             if (visited[current]) {
-                pthread_mutex_unlock(&see_mutex);
                 pthread_mutex_unlock(&mutex);
                 continue;
             }
 
             visited[current] = 1;
 
-            pthread_mutex_unlock(&see_mutex);
             pthread_mutex_unlock(&mutex);
         }
 
@@ -96,16 +85,16 @@ void DFS(Stack* globalStack) {
         long local[NUM_NODES];
         for (long i = 0; i < NUM_NODES; i++) {
             if (graph[current][i] == 1) {
-                pthread_mutex_lock(&see_mutex);
+                pthread_mutex_lock(&mutex);
                 if (visited[i]) {
-                    pthread_mutex_unlock(&see_mutex);
+                    pthread_mutex_unlock(&mutex);
                     continue;
                 } else {
                     if (parent[i] < 0) {
                         parent[i] = current;
                         local[index++] = i;
                     }
-                    pthread_mutex_unlock(&see_mutex);
+                    pthread_mutex_unlock(&mutex);
                 }
             }
         }
@@ -148,7 +137,6 @@ int main() {
 
     destroyStack(&globalStack);
     pthread_mutex_destroy(&mutex);
-    pthread_mutex_destroy(&see_mutex);
     pthread_exit(NULL);
 
     return 0;
